@@ -7,12 +7,10 @@ export default function Hero() {
         muted
         loop
         playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      >
+className="absolute inset-0 block h-full w-full object-cover"      >
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80" />
-      {/* Content */}
+<div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-[#09090f]" />      {/* Content */}
       <div className="relative z-10 flex max-w-5xl flex-col items-center px-6 text-center">
         {/* Badge */}
         <div className="mb-8 flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">
