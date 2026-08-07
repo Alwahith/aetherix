@@ -4,6 +4,8 @@ import { Canvas } from "@react-three/fiber";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { useScrollContext } from "@/context/ScrollContext";
+import MobileBackground from "./MobileBackground";
+import { useEffect, useState } from "react";
 
 const Scene = () => {
   const cameraRef = useRef<any>(null);
@@ -47,7 +49,7 @@ const Scene = () => {
           break;
         case 7: // Process - spiral motion
           rotationSpeed = baseRotationSpeed * 0.7;
-          // Add vertical movement (we'll store this in ref to avoid direct mutation)
+          // Add vertical movement
           if (!cameraRef.current.userData) {
             cameraRef.current.userData = { offsetY: 0 };
           }
@@ -298,11 +300,12 @@ function getSectionGeometry(sectionIndex: number, subsectionProgress: number) {
             <coneGeometry args={[1, 1, 4]} />
             <meshStandardMaterial color="silver" />
           </mesh>
-          <mesh
-            rotation={[Math.PI, 0, 0]}
-          >
+          <mesh>
             <coneGeometry args={[1, 1, 4]} />
             <meshStandardMaterial color="silver" />
+            <mesh
+              rotation={[Math.PI, 0, 0]}
+            />
           </mesh>
         </>
       );
@@ -326,7 +329,7 @@ function getSectionGeometry(sectionIndex: number, subsectionProgress: number) {
             <meshStandardMaterial color="white" />
           </mesh>
           {/* Add smaller spheres around */}
-          {[...Array(4)].map((_, i) => (
+          {...Array(4).map((_, i) => (
             <mesh key={i}
               position={[
                 Math.cos((i / 4) * Math.PI * 2) * 1.2,
@@ -350,9 +353,24 @@ function getSectionGeometry(sectionIndex: number, subsectionProgress: number) {
         </>
       );
   }
-}
+};
 
 const ThreeJSBackground = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  if (isMobile) {
+    return <MobileBackground />;
+  }
+
   return (
     <Canvas
       style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1, pointerEvents: "none" }}
