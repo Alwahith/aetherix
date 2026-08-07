@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 const projects = [
   {
@@ -69,10 +70,13 @@ export default function Portfolio() {
             >
               <div className="grid lg:grid-cols-2">
                 <div className="overflow-hidden">
-                  <img
-                    src={project.image}
+                  <Image
+                    src={`/images/portfolio-${project.title.toLowerCase().replace(/\s+/g, '-')}.jpg`}
                     alt={project.title}
-                    className="h-full min-h-[320px] w-full object-cover transition duration-700 group-hover:scale-110"
+                    fill
+                    className="object-cover transition duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
 

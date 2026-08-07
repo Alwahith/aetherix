@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const caseStudies = [
   {
@@ -127,10 +128,13 @@ export default function CaseStudies() {
             >
               {/* Image */}
               <div className="relative h-48">
-                <img
-                  src={study.image}
+                <Image
+                  src={`/images/case-study-${study.id}.jpg`}
                   alt={study.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#09090f] to-transparent/0" />
               </div>

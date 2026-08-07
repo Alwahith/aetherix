@@ -24,7 +24,8 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/images/hero-poster.jpg"
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source src="/videos/hero-v2.mp4" type="video/mp4" />
@@ -57,7 +58,7 @@ export default function Hero() {
               transition={{
                 duration: 1,
               }}
-className="mx-auto max-w-5xl text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem]"            >
+              className="mx-auto max-w-5xl text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem]"            >
               Crafting
 
               <br />

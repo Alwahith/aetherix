@@ -8,8 +8,8 @@ import {
 
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import ThreeJSBackground from "@/components/ThreeJSBackground";
 import { ScrollProvider } from "@/context/ScrollContext";
+import ThreeJSBackgroundClient from "@/components/ThreeJSBackgroundClient";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -49,7 +49,7 @@ export default function RootLayout({
         style={{ background: "transparent" }}
       >
         <ScrollProvider>
-          <ThreeJSBackground />
+          <ThreeJSBackgroundClient />
           <SmoothScroll>
             {children}
           </SmoothScroll>
