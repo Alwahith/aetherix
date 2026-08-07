@@ -5,7 +5,9 @@ import {
   Inter,
   Instrument_Serif,
 } from "next/font/google";
+
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -41,9 +43,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${cabin.variable} ${inter.variable} ${instrumentSerif.variable}`}
+        className={`${manrope.variable} ${cabin.variable} ${inter.variable} ${instrumentSerif.variable} bg-[#09090f] text-white`}
       >
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

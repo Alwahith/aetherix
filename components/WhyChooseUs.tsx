@@ -1,70 +1,126 @@
+"use client";
+
+import { motion } from "framer-motion";
 import {
-  FaRocket,
-  FaShieldAlt,
-  FaCloud,
-  FaHeadset,
-} from "react-icons/fa";
+  ShieldCheck,
+  Cloud,
+  Bot,
+  Globe,
+  Headphones,
+  Rocket,
+} from "lucide-react";
 
 const features = [
   {
-    icon: <FaRocket className="text-4xl text-violet-500" />,
-    title: "Fast Delivery",
-    desc: "Launch your website in days, not weeks.",
+    icon: Globe,
+    title: "Modern Web Development",
+    description:
+      "Fast, responsive and SEO-friendly websites built with Next.js and modern technologies.",
   },
   {
-    icon: <FaShieldAlt className="text-4xl text-violet-500" />,
-    title: "Secure & Reliable",
-    desc: "Enterprise-grade hosting with SSL and backups.",
-  },
-  {
-    icon: <FaCloud className="text-4xl text-violet-500" />,
+    icon: Cloud,
     title: "Cloud Infrastructure",
-    desc: "Hosted on AWS and modern cloud platforms.",
+    description:
+      "Secure AWS deployments with scalability, monitoring and high availability.",
   },
   {
-    icon: <FaHeadset className="text-4xl text-violet-500" />,
-    title: "24/7 Support",
-    desc: "We're available whenever you need help.",
+    icon: Bot,
+    title: "AI Automation",
+    description:
+      "Automate repetitive work and improve customer experiences with AI-powered solutions.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security First",
+    description:
+      "SSL, backups, email authentication and security best practices built into every project.",
+  },
+  {
+    icon: Headphones,
+    title: "Dedicated Support",
+    description:
+      "Reliable maintenance, updates and technical support even after your project goes live.",
+  },
+  {
+    icon: Rocket,
+    title: "Performance Focused",
+    description:
+      "Optimized code, lightning-fast loading speeds and an exceptional user experience.",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-28 bg-[#09090f]">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      id="why"
+      className="relative overflow-hidden bg-[#09090f] py-32"
+    >
+      <div className="absolute right-0 top-20 h-[420px] w-[420px] rounded-full bg-violet-600/15 blur-[140px]" />
 
-        <div className="text-center">
-          <span className="rounded-full border border-violet-500 px-5 py-2 text-sm text-violet-400">
-            WHY CHOOSE US
+      <div className="mx-auto grid max-w-7xl items-center gap-20 px-6 lg:grid-cols-2">
+
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: .7 }}
+        >
+          <span className="rounded-full border border-violet-500/30 bg-violet-500/10 px-5 py-2 text-sm font-medium text-violet-300">
+            WHY CHOOSE AETHERIX
           </span>
 
-          <h2 className="mt-8 text-5xl font-bold text-white">
-            Why Choose Aetherix?
+          <h2 className="mt-8 text-5xl font-bold leading-tight text-white md:text-6xl">
+            Technology That
+            <br />
+            Helps Businesses Grow.
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-gray-400">
-            We combine design, development, cloud infrastructure,
-            and AI to help businesses grow online.
+          <p className="mt-8 max-w-xl text-lg leading-8 text-white/70">
+            We combine modern web development, cloud infrastructure,
+            business productivity solutions and AI automation to build
+            reliable digital experiences that scale with your business.
           </p>
-        </div>
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((item, index) => (
-            <div
-              key={index}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-violet-500 hover:shadow-[0_0_40px_rgba(123,57,252,0.3)]"
-            >
-              {item.icon}
+          <div className="mt-10 flex gap-4">
+            <button className="rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 px-8 py-4 font-semibold text-white transition hover:scale-105">
+              Start a Project
+            </button>
 
-              <h3 className="mt-6 text-2xl font-semibold text-white">
-                {item.title}
-              </h3>
+            <button className="rounded-full border border-white/15 bg-white/5 px-8 py-4 font-semibold text-white transition hover:bg-white/10">
+              Learn More
+            </button>
+          </div>
+        </motion.div>
 
-              <p className="mt-4 text-gray-400">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+        <div className="grid gap-6">
+          {features.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: .6, delay: index * .08 }}
+                className="group flex gap-5 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/40 hover:shadow-[0_0_35px_rgba(124,58,237,.2)]"
+              >
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-500 text-white transition-transform duration-300 group-hover:scale-110">
+                  <Icon size={30} />
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 leading-7 text-white/65">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>
