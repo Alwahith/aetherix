@@ -32,10 +32,10 @@ export default function Footer() {
             </h3>
 
             <ul className="space-y-3 text-gray-400">
-              <li>Website Development</li>
-              <li>Cloud Hosting</li>
-              <li>SEO</li>
-              <li>AI Automation</li>
+              <li><a href="#services" className="hover:text-violet-400 transition">Website Development</a></li>
+              <li><a href="#services" className="hover:text-violet-400 transition">Cloud Hosting</a></li>
+              <li><a href="#services" className="hover:text-violet-400 transition">SEO</a></li>
+              <li><a href="#services" className="hover:text-violet-400 transition">AI Automation</a></li>
             </ul>
           </div>
 
@@ -46,10 +46,24 @@ export default function Footer() {
             </h3>
 
             <ul className="space-y-3 text-gray-400">
-              <li>About</li>
-              <li>Portfolio</li>
-              <li>Testimonials</li>
-              <li>Contact</li>
+              <li><a href="#home" className="hover:text-violet-400 transition">About</a></li>
+              <li><a href="#portfolio" className="hover:text-violet-400 transition">Portfolio</a></li>
+              <li><a href="#case-studies" className="hover:text-violet-400 transition">Case Studies</a></li>
+              <li><a href="#testimonials" className="hover:text-violet-400 transition">Testimonials</a></li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="mb-5 text-xl font-semibold text-white">
+              Resources
+            </h3>
+
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="#process" className="hover:text-violet-400 transition">Our Process</a></li>
+              <li><a href="#pricing" className="hover:text-violet-400 transition">Pricing</a></li>
+              <li><a href="#faq" className="hover:text-violet-400 transition">FAQ</a></li>
+              <li><a href="#contact" className="hover:text-violet-400 transition">Contact</a></li>
             </ul>
           </div>
 

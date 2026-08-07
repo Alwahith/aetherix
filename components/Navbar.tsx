@@ -8,7 +8,10 @@ const links = [
   { label: "Home", id: "home" },
   { label: "Services", id: "services" },
   { label: "Portfolio", id: "portfolio" },
+  { label: "Case Studies", id: "case-studies" },
   { label: "Testimonials", id: "testimonials" },
+  { label: "Pricing", id: "pricing" },
+  { label: "FAQ", id: "faq" },
   { label: "Contact", id: "contact" },
 ];
 
@@ -35,8 +38,8 @@ export default function Navbar() {
         transition={{ duration: 0.6 }}
         className={`mx-auto mt-6 flex w-[92%] max-w-7xl items-center justify-between rounded-full border transition-all duration-300 ${
   scrolled
-    ? "border-white/10 bg-black/70 px-10 py-4 backdrop-blur-2xl"
-    : "border-transparent bg-transparent px-10 py-6"
+    ? "border-white/10 bg-black/70 px-10 py-5 backdrop-blur-2xl"
+    : "border-transparent bg-transparent px-10 py-5"
 }`}
       >
         <button

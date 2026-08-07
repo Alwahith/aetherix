@@ -6,7 +6,7 @@ import {
 
 export default function Contact() {
   return (
-    <section className="bg-[#09090f] py-28">
+    <section id="contact" className="bg-[#09090f] py-28 scroll-mt-[5rem]">
       <div className="mx-auto max-w-7xl px-6">
 
         <div className="text-center">

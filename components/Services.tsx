@@ -53,7 +53,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative bg-[#09090f] py-28"
+      className="relative bg-[#09090f] py-28 scroll-mt-[6rem]"
     >
       <div className="mx-auto max-w-7xl px-6">
 

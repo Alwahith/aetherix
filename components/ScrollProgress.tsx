@@ -1,9 +1,23 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import { useScrollContext } from "@/context/ScrollContext";
+import { useEffect } from "react";
 
 export default function ScrollProgress() {
   const { scrollYProgress } = useScroll();
+  const { setScrollProgress } = useScrollContext();
+
+  // Update context with scroll progress
+  useEffect(() => {
+    const handleScrollChange = (progress: number) => {
+      setScrollProgress(progress);
+    };
+
+    // Subscribe to scroll changes
+    const unsubscribe = scrollYProgress.onChange(handleScrollChange);
+    return unsubscribe;
+  }, [scrollYProgress, setScrollProgress]);
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 120,

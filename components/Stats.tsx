@@ -12,7 +12,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section id="stats" className="relative bg-[#09090f] py-28">
+    <section id="stats" className="relative bg-[#09090f] py-28 scroll-mt-[5rem]">
       <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/10 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">

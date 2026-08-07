@@ -53,7 +53,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why"
-      className="relative overflow-hidden bg-[#09090f] py-32"
+      className="relative overflow-hidden bg-[#09090f] py-32 scroll-mt-[6rem]"
     >
       <div className="absolute right-0 top-20 h-[420px] w-[420px] rounded-full bg-violet-600/15 blur-[140px]" />
 

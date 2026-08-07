@@ -8,6 +8,8 @@ import {
 
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import ThreeJSBackground from "@/components/ThreeJSBackground";
+import { ScrollProvider } from "@/context/ScrollContext";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -43,11 +45,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${cabin.variable} ${inter.variable} ${instrumentSerif.variable} bg-[#09090f] text-white`}
+        className={`${manrope.variable} ${cabin.variable} ${inter.variable} ${instrumentSerif.variable} text-white`}
+        style={{ background: "transparent" }}
       >
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <ScrollProvider>
+          <ThreeJSBackground />
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </ScrollProvider>
       </body>
     </html>
   );

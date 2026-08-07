@@ -12,13 +12,13 @@ export default function Hero() {
   return (
     <section
   id="home"
-  className="relative min-h-screen overflow-hidden bg-[#09090f]"
+  className="relative min-h-screen bg-[#09090f]"
 >
       {/* =========================
           Background Video
       ========================== */}
 
-<div className="relative h-screen overflow-hidden">
+<div className="relative min-h-screen">
         <video
           autoPlay
           muted
@@ -48,7 +48,7 @@ export default function Hero() {
             Hero Content
         ========================== */}
 
-<div className="relative z-20 flex h-screen items-center justify-center pt-32">
+<div className="relative z-[99999] flex min-h-screen items-center justify-center pt-[5rem]">
           <div className="mx-auto max-w-7xl px-6 text-center">
 
             <motion.h1
