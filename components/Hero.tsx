@@ -1,52 +1,96 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Hero() {
+  const scrollToPortfolio = () => {
+    document
+      .getElementById("portfolio")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToContact = () => {
+    document
+      .getElementById("contact")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen overflow-hidden"
+    >
       {/* Background Video */}
       <video
         autoPlay
         muted
         loop
         playsInline
-className="absolute inset-0 block h-full w-full object-cover"      >
+        className="absolute inset-0 h-full w-full object-cover"
+      >
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
-<div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-[#09090f]" />      {/* Content */}
-      <div className="relative z-10 flex max-w-5xl flex-col items-center px-6 text-center">
-        {/* Badge */}
-        <div className="mb-8 flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">
-          <span className="rounded-md bg-violet-600 px-3 py-1 text-sm font-medium text-white">
-            New
-          </span>
 
-          <span className="text-sm text-white">
-            Welcome to Aetherix
-          </span>
-        </div>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-[#09090f]" />
+
+      {/* Purple Glow */}
+      <div className="absolute left-1/2 top-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/20 blur-[180px]" />
+
+      {/* Hero Content */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-start px-6 pt-52 text-center">
 
         {/* Heading */}
-        <h1 className="max-w-5xl text-5xl font-bold leading-tight text-white md:text-7xl">
-          Build Stunning Websites
+        <motion.h1
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          className="max-w-6xl text-6xl font-bold leading-[0.95] tracking-[-0.04em] text-white md:text-7xl lg:text-[7rem]"
+        >
+          Building{" "}
+          <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-500 bg-clip-text text-transparent">
+            Digital
+          </span>
           <br />
-          That Grow Your Business
-        </h1>
+          Experiences That
+          <br />
+          Drive Business Growth
+        </motion.h1>
 
         {/* Description */}
-        <p className="mt-8 max-w-2xl text-lg text-white/80">
-          We design, develop, host and manage modern websites with
-          cloud infrastructure, business email, SEO and AI-powered
-          solutions.
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="mt-10 max-w-2xl text-xl leading-9 text-white/70"
+        >
+          Aetherix builds premium websites, cloud infrastructure,
+          business email solutions and AI-powered automation
+          designed to help modern businesses grow faster.
+        </motion.p>
 
         {/* Buttons */}
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <button className="rounded-xl bg-violet-600 px-8 py-4 font-semibold text-white transition hover:bg-violet-700">
-            Get Started
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mt-16 flex flex-col gap-5 sm:flex-row"
+        >
+          <button
+            onClick={scrollToContact}
+            className="rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 px-10 py-4 text-lg font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(139,92,246,.6)]"
+          >
+            Start Your Project
           </button>
 
-          <button className="rounded-xl border border-white/20 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-md transition hover:bg-white/20">
-            View Portfolio
+          <button
+            onClick={scrollToPortfolio}
+            className="rounded-full border border-white/20 bg-white/10 px-10 py-4 text-lg font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:bg-white/20"
+          >
+            Explore Our Work
           </button>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );
